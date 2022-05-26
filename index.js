@@ -1,16 +1,9 @@
 const Discord = require('discord.js')
 const { Client } = require('discord.js');
 require("dotenv").config()
-const client = new Discord.Client({
-    intents: [
-        "GUILDS",
-        "GUILD_MESSAGES"
-    ]
-})
+const client = new Discord.Client({intents: 14023})
 
-client.once("ready", () => {
-    console.log("The bot is now online!");
-    client.user.setActivity("commands 🤖", {type: "WATCHING"})
-});
+require("./Handlers/Events")(client);
+
 
 client.login(process.env.TOKEN)
