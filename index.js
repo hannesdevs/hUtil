@@ -8,7 +8,7 @@ const client = new Discord.Client({
     intents: 14023
 })
 
-client.commands = new Collection()
+client.commands = new Discord.Collection();
 
 require("./Handlers/Events")(client);
 require("./Handlers/commands")(client);

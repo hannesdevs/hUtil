@@ -24,8 +24,13 @@ module.exports = {
                     .setDescription("❌ An error occurred while running this command.")
                 ]
             }) && client.commands.delete(interaction.commandName);
-
-            commands.execute(interaction, client)
         }
+        if (command.permission && !interaction.member.permissions.has(command.permission)) {
+            return interaction.reply({
+                content: `You do not have the required permission for this command: \`${interaction.commandName}\`.`,
+                ephemeral: true
+            })
+        }
+        commands.execute(interaction, client)
     }
 }
