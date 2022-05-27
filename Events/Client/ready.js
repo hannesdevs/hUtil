@@ -4,7 +4,7 @@ const {
 const mongoose = require('mongoose')
 const {
     Database
-} = require("../../config.json");
+} = require("../../Structures/config.json");
 module.exports = {
     name: "ready",
     once: true,
