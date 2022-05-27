@@ -5,7 +5,7 @@ const {
 } = require('discord.js');
 require("dotenv").config()
 const client = new Discord.Client({
-    intents: 131071
+    intents: 32767
 })
 
 client.commands = new Discord.Collection();

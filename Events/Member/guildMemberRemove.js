@@ -8,7 +8,7 @@ const {
 } = require("../Client/interactionCreate")
 
 module.exports = {
-    name: "guildMemberAdd",
+    name: "guildMemberRemove",
     /**
      * @param {GuildMember} member
      */
@@ -19,14 +19,13 @@ module.exports = {
             guild
         } = member;
 
-        member.roles.add("674996720131768320")
-        const Welcomer = new WebhookClient({
-            id: "979709481090969620",
-            token: "Akoo9rnbCc3igq1wLXT0OZlg47u2JYlgzNwJUJhNRB1mBxjNWLu18vNiQZfTTXIzRe2w"
+        const Loger = new WebhookClient({
+            id: "979765815438098523",
+            token: "OkiCHZw-UMFyKW8ah1DCT1cL1hm7I7L1zxIPzbsU0HHJjLUyMCVzF8ptzVetln2R78Un"
         });
 
         const Welcome = new MessageEmbed()
-            .setColor("AQUA")
+            .setColor("RED")
             .setAuthor(user.tag, user.avatarURL({
                 dynamic: true,
                 size: 512
@@ -36,11 +35,11 @@ module.exports = {
                 size: 512
             }))
             .setDescription(`
-            Welcome ${member} to the **${guild.name}**!\n
-            Account Created <t:${parseInt(user.createdTimestamp / 1000)}:R>\nLatest Member Count: **${guild.memberCount}**`)
+            ${member} has left the server\n
+            Joined: <t:${parseInt(member.joinedTimestamp / 1000)}:R>\nLatest Member Count: **${guild.memberCount}**`)
             .setFooter(`ID: ${user.id}`)
 
-        Welcomer.send({
+        Loger.send({
             embeds: [Welcome]
         })
     }
