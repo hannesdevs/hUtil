@@ -50,7 +50,7 @@ module.exports = {
 
         const Response = new MessageEmbed()
             .setColor("AQUA")
-            .setDescription(`${interaction.member} has suggested a ${type}.`)
+            .setDescription(`${interaction.member} has sent a ${type}.`)
             .addField("Name", `${name}`, true)
             .addField("Description", `${funcs}`, true)
         const message = await interaction.reply({
